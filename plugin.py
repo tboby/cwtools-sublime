@@ -27,54 +27,63 @@ from LSP.plugin.core.url import uri_to_filename
 from os.path import dirname
 
 
-
+default_cwtools_settings = {
+        'localisation': {
+                'languages' : ''
+        },
+        'errors': {
+            'vanilla': 'false',
+            'ignore': '',
+            'ignorefiles': ''
+        },
+        'experimental' : 'false',
+        'experimental_completion': 'true',
+        'trace': {
+            'server': 'messages'
+        }
+}
 
 config_name = 'cwtools'
 
 server_name = 'cwtools'
 
-cwtools_config = ClientConfig(
+def get_cwtools_config():
+    s = sublime.load_settings("LSP-cwtools.sublime-settings").get('settings', default_cwtools_settings)
+    return ClientConfig(
 
-    name=config_name,
+        name=config_name,
 
-    binary_args=[
+        binary_args=[
 
-        #"C:/Users/Thomas/AppData/Roaming/Sublime Text 3/Packages/LSP-cwtools/win-x64/Main.exe"
-        dirname(__file__) + "/win-x64/Main.exe"
+            dirname(__file__) + '/win-x64/Main.exe'
 
-    ],
+        ],
 
-    tcp_port=None,
+        tcp_port=None,
 
-    scopes=["source.stellaris"],
+        scopes=['source.stellaris'],
 
-    syntaxes=[
+        syntaxes=[
 
-       "Packages/StellarisSublime/Stellaris.sublime-syntax",
+           'Packages/StellarisSublime/Stellaris.sublime-syntax',
 
-    ],
+        ],
 
-    languageId='stellaris',
+        languageId='stellaris',
 
-    enabled=False,
+        enabled=False,
 
-    init_options=dict(),
+        init_options=dict(),
 
-    settings=dict(),
+        settings=s,
 
-    env=dict())
-
-
-
-
-
-
+        env=dict())
 
 
 class LspCwtoolsPlugin(LanguageHandler):
     def __init__(self):
         self._name = config_name
-        self._config = cwtools_config
+        self._config = get_cwtools_config()
 
 
 
