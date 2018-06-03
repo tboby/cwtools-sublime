@@ -71,7 +71,7 @@ def get_cwtools_config():
 
         languageId='stellaris',
 
-        enabled=False,
+        enabled=True,
 
         init_options=dict(),
 
@@ -85,28 +85,32 @@ class LspCwtoolsPlugin(LanguageHandler):
         self._name = config_name
         self._config = get_cwtools_config()
 
-
-
     @property
     def name(self) -> str:
         return self._name
-
-
 
     @property
     def config(self) -> ClientConfig:
         return self._config
 
-
-
     def on_start(self, window) -> bool:
+        print("on start")
         return True
 
-
-
     def on_initialized(self, client) -> None:
-        return
+        print("on initialized")
+        register_client(client)
 
 
+def register_client(client):
+    print("register loadingBar")     
+    client.on_notification(
+        "loadingBar",
+        lambda params: on_loading_bar(params))
 
-
+def on_loading_bar(params):
+    print("loadingBar")
+    if(params.status):
+        sublime.status_message(params.value)
+    else:
+        sublime.status_message("")
