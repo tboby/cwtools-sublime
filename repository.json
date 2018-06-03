@@ -1,0 +1,16 @@
+{
+	"schema_version": "3.0.0",
+
+	"packages": [
+
+		{
+			"name": "LSP_cwtools",
+			"details": "https://github.com/tboby/cwtools-sublime",
+			"releases": [
+				{
+					"sublime_text": "*",
+					"tags": true
+				}
+			]
+		}
+}
