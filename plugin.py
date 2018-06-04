@@ -110,7 +110,7 @@ def register_client(client):
 
 def on_loading_bar(params):
     print("loadingBar")
-    if(params.status):
-        sublime.status_message(params.value)
+    if(params["enable"]):
+        sublime.status_message(params["value"])
     else:
         sublime.status_message("")
