@@ -32,7 +32,7 @@ default_cwtools_settings = {
                 'languages' : ''
         },
         'errors': {
-            'vanilla': 'false',
+            'vanilla': 'true',
             'ignore': '',
             'ignorefiles': ''
         },
