@@ -12,6 +12,16 @@
 					"tags": true
 				}
 			]
+		},
+		{
+			"name": "StellarisSublime",
+			"details": "https://github.com/Zednosius/StellarisSublime",
+			"releases": [
+				{
+					"sublime_text": "*",
+					"branch": "master"
+				}
+			]
 		}
 	]
 }
