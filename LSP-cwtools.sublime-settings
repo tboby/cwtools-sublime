@@ -5,7 +5,7 @@
             "languages" : ""
         },
         "errors": {
-            "vanilla": false,
+            "vanilla": true,
             "ignore": "",
             "ignorefiles": ""
         },
