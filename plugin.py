@@ -55,7 +55,7 @@ def get_cwtools_config():
 
         binary_args=[
 
-            dirname(__file__) + '/win-x64/Main.exe'
+            dirname(__file__) + '/win-x64/CWTools Server.exe'
 
         ],
 
